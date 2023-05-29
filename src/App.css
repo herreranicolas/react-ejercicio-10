@@ -1,0 +1,34 @@
+body {
+  background: linear-gradient(10deg, #e5091400 58%, #e50914 128%), #000;
+  background-repeat: no-repeat;
+  color: #8b8a88 !important;
+}
+
+.form-control,
+.form-control:active,
+.form-control:focus,
+.form-control:hover,
+.form-select,
+.form-select:active,
+.form-select:focus,
+.form-select:hover,
+.btn,
+.btn:hover,
+.btn:focus,
+.btn:active,
+textarea {
+  color: #8b8a88 !important;
+  background: linear-gradient(10deg, #e5091400 58%, #8b8a88 128%), #000;
+  border-color: #e5091400 !important;
+  box-shadow: 0 1px 1px #e5091400 inset, 0 0 8px #e50914;
+  outline: 0 none;
+  outline: 0 none !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #e5091400 inset !important;
+  -webkit-text-fill-color: #8b8a88 !important;
+}
