@@ -17,7 +17,7 @@ function FormularioPelicula() {
   return (
     <Form noValidate validated={validated} onSubmit={handleSubmit}>
       <Row className="mb-3">
-        <Form.Group as={Col} md="4" controlId="inputNombre">
+        <Form.Group as={Col} xs="12" controlId="inputNombre" className="mb-3">
           <Form.Label>Nombre</Form.Label>
           <Form.Control required type="text" placeholder="Nombre" />
           <Form.Control.Feedback>¡Excelente!</Form.Control.Feedback>
@@ -25,7 +25,12 @@ function FormularioPelicula() {
             Por favor ingresa un nombre válido
           </Form.Control.Feedback>
         </Form.Group>
-        <Form.Group as={Col} md="4" controlId="inputDescripcion">
+        <Form.Group
+          as={Col}
+          xs="12"
+          controlId="inputDescripcion"
+          className="mb-3"
+        >
           <Form.Label>Descripcion</Form.Label>
           <Form.Control required as="textarea" placeholder="Descripcion" />
           <Form.Control.Feedback>¡Excelente!</Form.Control.Feedback>
@@ -33,14 +38,14 @@ function FormularioPelicula() {
             Por favor ingresa una descripción válida
           </Form.Control.Feedback>
         </Form.Group>
-        <Form.Group as={Col} md="4">
+        <Form.Group as={Col} xs="12" className="mb-3">
           <Form.Label>Género</Form.Label>
           <Form.Select
             required
             aria-label="genero-select"
             controlId="inputGenero"
           >
-            <option>Seleccionar género</option>
+            <option value="">Seleccionar género</option>
             <option value="Comedia">Comedia</option>
             <option value="Drama">Drama</option>
             <option value="Infantil">Infantil</option>
@@ -50,8 +55,10 @@ function FormularioPelicula() {
             Por favor selecciona un género.
           </Form.Control.Feedback>
         </Form.Group>
+        <div className="text-center my-3">
+          <Button type="submit">Enviar</Button>
+        </div>
       </Row>
-      <Button type="submit">Enviar</Button>
     </Form>
   );
 }

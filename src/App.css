@@ -12,17 +12,32 @@ body {
 .form-select:active,
 .form-select:focus,
 .form-select:hover,
-.btn,
-.btn:hover,
-.btn:focus,
-.btn:active,
 textarea {
   color: #8b8a88 !important;
   background: linear-gradient(10deg, #e5091400 58%, #8b8a88 128%), #000;
-  border-color: #e5091400 !important;
-  box-shadow: 0 1px 1px #e5091400 inset, 0 0 8px #e50914;
-  outline: 0 none;
+  background-repeat: no-repeat;
+}
+
+.btn,
+.btn:hover,
+.btn:focus,
+.btn:active {
+  background: linear-gradient(10deg, #e5091400 58%, #8b8a88 128%), #000;
+  border-color: #ced4da;
+  box-shadow: 0 1px 1px #00000013 inset, 0 0 8px #8b8a88;
   outline: 0 none !important;
+}
+
+.btn:active:focus {
+  background: linear-gradient(10deg, #e5091400 58%, #e50914 128%), #000;
+  background-repeat: no-repeat;
+  border-color: #e50914;
+  box-shadow: 0 1px 1px #00000013 inset, 0 0 8px #8b8a88;
+  outline: 0 none !important;
+}
+
+option:hover {
+  background-color: #e50914;
 }
 
 input:-webkit-autofill,
@@ -31,4 +46,22 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px #e5091400 inset !important;
   -webkit-text-fill-color: #8b8a88 !important;
+}
+
+textarea.form-control {
+  min-height: calc(1.5em + 0.75rem + 2px);
+  max-height: calc(4.5em + 2.25rem + 6px);
+}
+
+@media (min-width: 768px) {
+  form {
+    width: 50%;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
