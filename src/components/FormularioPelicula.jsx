@@ -1,18 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 
 function FormularioPelicula() {
   const [validated, setValidated] = useState(false);
+  const [nombre, setNombre] = useState("");
+  const [descripcion, setDescripcion] = useState("");
+  const [genero, setGenero] = useState("");
+  const [arregloPeliculas, setArregloPeliculas] = useState(
+    JSON.parse(localStorage.getItem("peliculas")) || [
+      { nombre: "nombre1", descripcion: "descripcion1", genero: "Comedia" },
+      { nombre: "nombre2", descripcion: "descripcion2", genero: "Drama" },
+      { nombre: "nombre3", descripcion: "descripcion3", genero: "Infantil" },
+    ]
+  );
 
-  const handleSubmit = (event) => {
-    const form = event.currentTarget;
+  const handleSubmit = (e) => {
+    const form = e.currentTarget;
+    e.preventDefault();
     if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
+      e.stopPropagation();
+    } else {
+      const pelicula = { nombre, descripcion, genero };
+      console.log(pelicula);
+      setArregloPeliculas([...arregloPeliculas, pelicula]);
+      setValidated(true);
     }
 
-    setValidated(true);
+    setValidated(false);
   };
+
+  useEffect(() => {
+    localStorage.setItem("peliculas", JSON.stringify(arregloPeliculas));
+  }, [arregloPeliculas]);
 
   return (
     <Form noValidate validated={validated} onSubmit={handleSubmit}>
@@ -25,18 +44,15 @@ function FormularioPelicula() {
             placeholder="Nombre"
             minLength={3}
             maxLength={20}
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
           />
           <Form.Control.Feedback>¡Excelente!</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">
             Por favor ingresa un nombre válido
           </Form.Control.Feedback>
         </Form.Group>
-        <Form.Group
-          as={Col}
-          xs="12"
-          controlId="inputDescripcion"
-          className="mb-3"
-        >
+        <Form.Group as={Col} xs="12" className="mb-3">
           <Form.Label>Descripcion</Form.Label>
           <Form.Control
             required
@@ -44,6 +60,8 @@ function FormularioPelicula() {
             placeholder="Descripcion"
             minLength={5}
             maxLength={50}
+            value={descripcion}
+            onChange={(e) => setDescripcion(e.target.value)}
           />
           <Form.Control.Feedback>¡Excelente!</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">
@@ -55,7 +73,8 @@ function FormularioPelicula() {
           <Form.Select
             required
             aria-label="genero-select"
-            controlId="inputGenero"
+            value={genero}
+            onChange={(e) => setGenero(e.target.value)}
           >
             <option value="">Seleccionar género</option>
             <option value="Comedia">Comedia</option>
