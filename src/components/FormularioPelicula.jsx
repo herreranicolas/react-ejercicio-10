@@ -19,7 +19,13 @@ function FormularioPelicula() {
       <Row className="mb-3">
         <Form.Group as={Col} xs="12" controlId="inputNombre" className="mb-3">
           <Form.Label>Nombre</Form.Label>
-          <Form.Control required type="text" placeholder="Nombre" />
+          <Form.Control
+            required
+            type="text"
+            placeholder="Nombre"
+            minLength={3}
+            maxLength={20}
+          />
           <Form.Control.Feedback>¡Excelente!</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">
             Por favor ingresa un nombre válido
@@ -32,7 +38,13 @@ function FormularioPelicula() {
           className="mb-3"
         >
           <Form.Label>Descripcion</Form.Label>
-          <Form.Control required as="textarea" placeholder="Descripcion" />
+          <Form.Control
+            required
+            as="textarea"
+            placeholder="Descripcion"
+            minLength={5}
+            maxLength={50}
+          />
           <Form.Control.Feedback>¡Excelente!</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">
             Por favor ingresa una descripción válida
