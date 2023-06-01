@@ -53,6 +53,13 @@ textarea.form-control {
   max-height: calc(4.5em + 2.25rem + 6px);
 }
 
+.card {
+  font-weight: bold;
+  color: #8b8a88 !important;
+  background: linear-gradient(10deg, #e5091400 58%, #0d6efd 128%), #000;
+  background-repeat: no-repeat;
+}
+
 @media (min-width: 768px) {
   form {
     width: 50%;
