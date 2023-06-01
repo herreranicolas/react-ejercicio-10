@@ -7,7 +7,6 @@ En este trabajo práctico aplicamos prácticas con componentes, ciclo de vida de
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Git & GitHub](https://github.com/)
 - [Vite JS](https://vitejs.dev/)
-- [uuidv4](https://www.npmjs.com/package/uuidv4)
 
 ## Como clonar el repositorio
 
