@@ -60,6 +60,10 @@ textarea.form-control {
   background-repeat: no-repeat;
 }
 
+.card-body {
+  padding-top: 0 !important;
+}
+
 @media (min-width: 768px) {
   form {
     width: 50%;

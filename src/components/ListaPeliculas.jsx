@@ -1,18 +1,23 @@
 import { Container, Row } from "react-bootstrap";
 import CardPelicula from "./CardPelicula";
 
-const ListaPeliculas = () => {
+const ListaPeliculas = ({ arregloPeliculas }) => {
   return (
     <Container>
-      <Row
-        xs={1}
-        md={2}
-        lg={3}
-        xl={4}
-        className="justify-content-center align-items-center"
-      >
-        <CardPelicula></CardPelicula>
-      </Row>
+      {arregloPeliculas.length === 0 ? (
+        <h2 className="text-center">Aun no hay peliculas agregadas</h2>
+      ) : (
+        <Row xs={1} md={2} lg={3} xl={4}>
+          {arregloPeliculas.map((pelicula, indice) => (
+            <CardPelicula
+              key={indice}
+              nombre={pelicula.nombre}
+              descripcion={pelicula.descripcion}
+              genero={pelicula.genero}
+            ></CardPelicula>
+          ))}
+        </Row>
+      )}
     </Container>
   );
 };
